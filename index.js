@@ -8,11 +8,11 @@ $('#js-shopping-list-form').on('submit', function(event){
 
 // $(document).ready(function () {
   $('.shopping-item-toggle').click(function() {
-    // let target = $(this).closest('li');
-    if ($(this).closest('li').is(".shopping-item__checked")){
-      $(this).closest('li').removeClass("shopping-item__checked");
+    const target = $(this).closest('li').find('.shopping-item')
+    if ($(target).is(".shopping-item__checked")){
+      $(target).removeClass("shopping-item__checked");
     } else {
-      $(this).closest('li').addClass("shopping-item__checked");
+      $(target).addClass("shopping-item__checked");
     }
 
   });
@@ -20,7 +20,7 @@ $('#js-shopping-list-form').on('submit', function(event){
 
 
 
-$('.shopping-item-delete').click(function() {
+$('ul').on('click', '.shopping-item-delete' , function(event) {
   $(this).closest("li").remove();
 });
 
